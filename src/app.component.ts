@@ -14,8 +14,7 @@ import Lenis from 'lenis';
     <p-confirmDialog key="root-dialog" />
     <app-header-component></app-header-component>
     <router-outlet></router-outlet>
-    `,
-
+    <app-footer-component></app-footer-component> `,
 })
 export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {

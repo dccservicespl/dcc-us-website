@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-application-development',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './application-development.html',
   styleUrl: './application-development.scss',
 })
