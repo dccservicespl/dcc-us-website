@@ -17,6 +17,10 @@ export const routes: Routes = [
         path: 'success_stories',
         loadChildren: () => import('./success_stories/success_stories.route').then((x) => x.routes),
       },
+      {
+        path: 'services',
+        loadChildren: () => import('./services/services.route').then((x) => x.routes),
+      },
     ],
   },
 ];
