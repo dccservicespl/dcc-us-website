@@ -1,13 +1,61 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>DccUsWebsiteNew</title>
+  <title>Data Consultants Corporation</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="fav.webp">
+  <style>
+    /* Hide the entire app until Angular boots */
+    app-root {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    /* Full-screen initial loader */
+    #initial-loader {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      /* match your app's bg color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    #initial-loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Simple spinner */
+    .init-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: initSpin 0.8s linear infinite;
+    }
+
+    @keyframes initSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div id="initial-loader">
+    <div class="init-spinner"></div>
+  </div>
   <app-root></app-root>
 </body>
+
 </html>

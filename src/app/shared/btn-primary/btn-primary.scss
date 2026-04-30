@@ -1,0 +1,29 @@
+.btn_1 {
+  display: flex;
+  padding: 12px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  border: 1px solid transparent;
+  // border-radius: 50px;
+  background: var(--primary, #b41f3b);
+  transition: all 0.5s ease;
+
+}
+.btn_1 p , .btn_2 p {
+  margin-bottom: 0;
+}
+
+.btn_1:hover {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.btn_1 svg path {
+  transition: all 0.5s ease;
+  stroke: #fff;
+}
+.btn_1:hover svg path {
+  stroke: var(--primary);
+}

@@ -1,20 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import './mega_menu';
 @import './responsive';
-
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  font-family: "Poppins", sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .navbar-toggler:focus,
@@ -26,6 +25,12 @@ html {
   box-shadow: none !important;
   border: 0 !important;
 }
+
+.container-fluid{
+  padding: 0 6% !important;
+  width: 100%;
+}
+
 
 h1,
 h2,
@@ -43,6 +48,11 @@ li {
   text-decoration: none;
 }
 
+section a , header a{
+  list-style: none;
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -50,7 +60,7 @@ h4,
 h5,
 h6,
 .font {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 :root {
@@ -96,7 +106,7 @@ h6,
 }
 
 .nav-link {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 18px;
   font-weight: 300 !important;
 }
@@ -109,9 +119,13 @@ h6,
   gap: 8px;
   color: #fff;
   border: 1px solid transparent;
-  border-radius: 50px;
+  // border-radius: 50px;
   background: var(--primary, #b41f3b);
   transition: all 0.5s ease;
+
+}
+.btn_1 p , .btn_2 p {
+  margin-bottom: 0;
 }
 
 .btn_1:hover {
@@ -128,7 +142,7 @@ h6,
   gap: 8px;
   color: var(--secondary-red);
   border: 1px solid var(--secondary-red);
-  border-radius: 50px;
+  // border-radius: 50px;
   background: transparent;
   transition: all 0.5s ease;
 }
@@ -268,7 +282,7 @@ header .logo {
   color: white;
   padding: 12px 24px;
   border: 0;
-  border-radius: 50px;
+  // border-radius: 50px;
   text-transform: uppercase;
   font-weight: bold;
   transition: all 0.3s ease;
@@ -312,7 +326,7 @@ header.active {
 }
 
 section.service .service_img {
-  border-radius: 30px !important;
+  // border-radius: 30px !important;
 }
 
 section.service .card-img-overlay {
@@ -345,14 +359,14 @@ section.service .card-img-overlay {
 
 section.advantage h5 {
   color: var(--Color-Secondary, #1f2937);
-  font-family: "Instrument Sans";
+  font-family: 'DM Sans', sans-serif;
   font-size: 26px;
   font-style: normal;
   font-weight: 500;
 }
 
 section.advantage .icon_box {
-  border-radius: 16px;
+  // border-radius: 16px;
   border: 1px solid rgba(111, 111, 111, 0.5);
   background: var(--Color-Primary, #b41f3b);
   padding: 20px;
@@ -364,7 +378,7 @@ section.advantage .icon_box img {
 }
 
 section.advantage .card_dcc_adv {
-  border-radius: 16px;
+  // border-radius: 16px;
   border: 1px solid rgba(111, 111, 111, 0.5);
   background: rgba(255, 255, 255, 0.89);
 }
@@ -383,7 +397,7 @@ section.advantage .card_dcc_adv {
 }
 
 section.service .card {
-  border-radius: 30px;
+  // border-radius: 30px;
 }
 
 section.work {
@@ -395,11 +409,11 @@ section.work .work_bg_1 {
   font-weight: 600;
   min-height: 500px;
   width: 100%;
-  background: url("/Images/work.webp") no-repeat;
+  background: url('/Images/work.webp') no-repeat;
   background-position: center center;
   background-size: cover;
   color: #fff;
-  border-radius: 20px;
+  // border-radius: 20px;
   position: relative;
 }
 
@@ -408,11 +422,11 @@ section.work .work_bg_2 {
   font-weight: 600;
   min-height: 500px;
   width: 100%;
-  background: url("/Images/work-1.webp") no-repeat;
+  background: url('/Images/work-1.webp') no-repeat;
   background-position: center center;
   background-size: cover;
   color: #fff;
-  border-radius: 20px;
+  // border-radius: 20px;
   position: relative;
 }
 
@@ -431,7 +445,7 @@ section.work .top_stay {
   padding: 12px 15px;
   align-items: center;
   gap: 8px;
-  border-radius: 16px;
+  // border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(24.100000381469727px);
@@ -504,12 +518,12 @@ section.work .top_stay {
 
 /* Custom Rounded Card */
 .custom-card {
-  border-radius: 2rem;
+  // border-radius: 2rem;
   border: none;
 }
 
 section.recycle .card_recycle {
-  border-radius: 20px;
+  // border-radius: 20px;
   border: 1px solid #e6e6e6;
   background: #fcfcfc;
   padding: 16px;
@@ -518,7 +532,7 @@ section.recycle .card_recycle {
 /* --- Footer Specific Styles (Matching image_6d509b.jpg) --- */
 .cta-banner {
   position: relative;
-  border-radius: 24px;
+  // border-radius: 24px;
   padding: 60px 20px;
   margin-bottom: -100px;
   /* Overlap with footer */
@@ -530,13 +544,13 @@ section.recycle .card_recycle {
 
 /* The Background Image Layer */
 .cta-banner::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/Images/footer_banner_bg.webp") no-repeat;
+  background: url('/Images/footer_banner_bg.webp') no-repeat;
   background-size: cover;
   background-position: center;
   z-index: -2;
@@ -544,7 +558,7 @@ section.recycle .card_recycle {
 
 /* The Gradient Overlay Layer */
 .cta-banner::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -607,7 +621,7 @@ section.recycle .card_recycle {
 .social-btn {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  // border-radius: 50%;
   background: #1f2937;
   display: inline-flex;
   align-items: center;
@@ -632,7 +646,7 @@ section.recycle .card_recycle {
 }
 
 .btn-cta {
-  border-radius: 50px;
+  // border-radius: 50px;
   padding: 10px 24px;
   font-weight: 500;
   display: inline-flex;
@@ -669,7 +683,7 @@ section.other-banner {
 }
 
 section.other-banner .about_banner {
-  background: url("/Images/about_us_banner.webp") no-repeat;
+  background: url('/Images/about_us_banner.webp') no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -681,7 +695,7 @@ section.other-banner .about_banner {
 }
 
 section.other-banner .grocery-store {
-  background: url("/Images/case_study_1.webp") no-repeat;
+  background: url('/Images/case_study_1.webp') no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -746,7 +760,7 @@ section.about_page {
   width: 80px;
   background-color: #b41f3b;
   margin: 0 auto 3rem auto;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 /* Fixed dashed line background */
@@ -775,7 +789,7 @@ section.about_page {
   border: 2px solid #b41f3b;
   color: #b41f3b;
   padding: 8px 24px;
-  border-radius: 50px;
+  // border-radius: 50px;
   top: -10px;
   font-weight: 700;
   display: inline-block;
@@ -787,7 +801,7 @@ section.about_page {
 
 /* Triangle pointer under bubble */
 .year-bubble::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -807,7 +821,7 @@ section.about_page {
   transform: scale(0.9);
   filter: grayscale(100%);
   background: white;
-  border-radius: 24px;
+  // border-radius: 24px;
   height: 100%;
   max-width: 80%;
   /* min-height: 280px; */
@@ -849,7 +863,7 @@ section.about_page {
   width: 10px;
   height: 10px;
   background-color: #ef4444;
-  border-radius: 50%;
+  // border-radius: 50%;
   margin-left: 8px;
   animation: pulse 2s infinite;
 }
@@ -894,7 +908,7 @@ section.about_page {
   border: 1px solid #d7d7d7;
   padding: 12px 12px;
   color: #991b1b;
-  border-radius: 20px;
+  // border-radius: 20px;
   background: rgba(0, 0, 0, 0.08);
   width: max-content;
   backdrop-filter: blur(20px);
@@ -906,7 +920,7 @@ section.about_page {
 }
 
 .bottom_bar_about .box > a.active {
-  border-radius: 10px;
+  // border-radius: 10px;
   background: #b41f3b;
   color: #f9f9f9;
 }
@@ -925,7 +939,7 @@ section.about_page {
 .bottom_bar_about .box > a.active {
   background: #b41f3b;
   color: #f9f9f9;
-  border-radius: 12px;
+  // border-radius: 12px;
   transform: translateY(-2px);
   /* Slight lift for visual feedback */
   box-shadow: 0 4px 12px rgba(180, 31, 59, 0.3);
@@ -939,7 +953,7 @@ section.overview .badge {
 }
 
 section.challenge .card {
-  border-radius: 20px;
+  // border-radius: 20px;
   border: 1px solid rgba(180, 31, 59, 0.31);
   background: #fffafa;
 }
@@ -966,20 +980,20 @@ section.about_client .box_btn h6 {
 }
 
 section.about_client .box_btn::after {
-  content: "";
+  content: '';
   position: absolute;
   border: 1px solid #c6c6c6;
   inset: 0;
   width: 85%;
   z-index: -1;
   top: -2px;
-  border-radius: 10px;
+  // border-radius: 10px;
   left: 49%;
   transform: translateX(-50%);
 }
 
 section.about_client .card_style {
-  border-radius: 16px;
+  // border-radius: 16px;
   background-color: #fff;
   padding: 12px 16px;
   width: 100%;
@@ -992,7 +1006,7 @@ section.about_client .card_style {
 }
 
 section.about_client {
-background: linear-gradient(180deg, #FFF1F3 0%, rgba(255, 241, 243, 0.00) 100%);
+  background: linear-gradient(180deg, #fff1f3 0%, rgba(255, 241, 243, 0) 100%);
 }
 
 /* .card_style.one{animation-delay: 0.5s;}
@@ -1024,19 +1038,19 @@ section.about_client .flex {
 }
 
 section.background {
-  background: url("/Images/banner_bg_case.webp");
+  background: url('/Images/banner_bg_case.webp');
   padding: 100px 0;
 }
 
 section.challenges .card_1 {
-  border-radius: 20px;
+  // border-radius: 20px;
   /* border: 1px solid #E8E8E8; */
 }
 
 .animated-card {
   position: relative;
   background: white;
-  border-radius: 20px;
+  // border-radius: 20px;
   z-index: 1;
   /* To hide the rotating corners that overlap */
   overflow: hidden;
@@ -1046,7 +1060,7 @@ section.challenges .card_1 {
 }
 
 .animated-card::before {
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   /* Make this larger than the card so the rotation covers corners */
@@ -1054,23 +1068,18 @@ section.challenges .card_1 {
   height: 150%;
 
   /* Your specific colors from the design */
-  background: conic-gradient(
-    #e8e8e8 0%,
-    #b41f3b 25%,
-    #cecacb 80%,
-    #e8e8e8 100%
-  );
+  background: conic-gradient(#e8e8e8 0%, #b41f3b 25%, #cecacb 80%, #e8e8e8 100%);
 
   animation: spin 10s linear infinite;
 }
 
 /* The "Mask" to create the 1px border look */
 .animated-card::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 1px; /* This defines the border thickness */
   background: white;
-  border-radius: 19px; /* Slightly less than the outer radius */
+  // border-radius: 19px; /* Slightly less than the outer radius */
   z-index: -1;
 }
 
@@ -1094,7 +1103,7 @@ section.challenges .card_1 {
 } */
 
 section.challenges .color_bg {
-  border-radius: 20px;
+  // border-radius: 20px;
   border: 1px solid #e8e8e8;
   background: #b41f3b;
   padding: 5px 10px;
@@ -1103,7 +1112,7 @@ section.challenges .color_bg {
 
 section.challenges .color_bg h2 {
   color: rgba(255, 255, 255, 0.42);
-  font-family: "Instrument Sans";
+  font-family: 'DM Sans', sans-serif;
   font-size: 48.125px;
   font-style: normal;
   font-weight: 600;

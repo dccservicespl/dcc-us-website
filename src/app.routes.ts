@@ -4,6 +4,7 @@ export const appRoutes: Routes = [
   { path: '', redirectTo: '/main/home', pathMatch: 'full' },
   {
     path: 'main',
+    data: { breadcrumb: null },  
     children: [
       {
         path: '',
@@ -11,6 +12,5 @@ export const appRoutes: Routes = [
       },
     ],
   },
-
   { path: '**', redirectTo: '/main/home' },
 ];
