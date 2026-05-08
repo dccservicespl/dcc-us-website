@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header-component',
@@ -14,7 +16,50 @@ export class HeaderComponent implements AfterViewInit {
     this.initHeaderScroll();
     this.initMegaMenu();
     this.initCountryDropdown();
+    this.closeMegaMenuOnRouteChange();
   }
+
+  closeMegaMenuOnRouteChange() {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      const megaMenus = document.querySelectorAll('.mega-menu');
+      const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+      const dropdown = document.getElementById('countryDropdown');
+      const navEl = document.getElementById('mainNav');
+
+      // ✅ Force remove hover effect
+      dropdowns.forEach((item) => {
+        item.classList.remove('show');
+        (item as HTMLElement).blur(); // remove focus
+      });
+
+      // ✅ Hide all mega menus manually
+      megaMenus.forEach((menu) => {
+        (menu as HTMLElement).style.visibility = 'hidden';
+        (menu as HTMLElement).style.opacity = '0';
+        (menu as HTMLElement).style.pointerEvents = 'none';
+      });
+
+      // ✅ Close country dropdown
+      dropdown?.classList.remove('open');
+
+      // ✅ Close mobile nav
+      if (navEl && window.innerWidth < 992) {
+        const bsCollapse = (window as any).bootstrap?.Collapse.getInstance(navEl);
+        bsCollapse?.hide();
+      }
+
+      // ✅ Reset after small delay (allow new page load)
+      setTimeout(() => {
+        megaMenus.forEach((menu) => {
+          (menu as HTMLElement).style.visibility = '';
+          (menu as HTMLElement).style.opacity = '';
+          (menu as HTMLElement).style.pointerEvents = '';
+        });
+      }, 50);
+    });
+  }
+
+  constructor(private router: Router) {}
 
   initHeaderScroll() {
     window.addEventListener('scroll', () => {
@@ -28,27 +73,18 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   initMegaMenu() {
-    const megaMenu = document.querySelector('.mega-menu');
-    if (!megaMenu) return;
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
 
-    megaMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
+    dropdowns.forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        item.classList.add('menu-open');
+      });
 
-    const links = megaMenu.querySelectorAll('.menu-link-item, .badge');
-    links.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 992) {
-          const navEl = document.getElementById('mainNav');
-          if (navEl) {
-            const bsCollapse = new (window as any).bootstrap.Collapse(navEl);
-            bsCollapse.hide();
-          }
-        }
+      item.addEventListener('mouseleave', () => {
+        item.classList.remove('menu-open');
       });
     });
   }
-
   initCountryDropdown() {
     const dropdown = document.getElementById('countryDropdown');
     if (!dropdown) return;

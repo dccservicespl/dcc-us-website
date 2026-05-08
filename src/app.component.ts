@@ -1,15 +1,22 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { HeaderComponent } from './app/shared/header/header-component/header-component';
 import { FooterComponent } from './app/shared/footer/footer-component/footer-component';
+import { filter } from 'rxjs/operators';
 import Lenis from 'lenis';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, ToastModule, ConfirmDialogModule, HeaderComponent, FooterComponent],
+  imports: [
+    RouterModule,
+    ToastModule,
+    ConfirmDialogModule,
+    HeaderComponent,
+    FooterComponent
+  ],
   template: `
     <p-toast key="root-msgs"></p-toast>
     <p-confirmDialog key="root-dialog" />
@@ -17,7 +24,6 @@ import Lenis from 'lenis';
     <router-outlet></router-outlet>
     <app-footer-component></app-footer-component>
   `,
-  // ✅ App starts invisible, fades in smoothly
   styles: [`
     :host {
       display: block;
@@ -29,21 +35,23 @@ import Lenis from 'lenis';
 })
 export class AppComponent implements AfterViewInit {
 
+  constructor(private router: Router) {}
+
   ngAfterViewInit() {
-    this.revealApp();       // ✅ Hide loader, show app
+    this.revealApp();
     this.initLenis();
     this.initHeaderScroll();
+    this.handleRouteScroll(); // ✅ scroll fix
   }
 
+  // ✅ Remove loader and show app
   revealApp() {
-    // 1. Remove the initial loader
     const loader = document.getElementById('initial-loader');
     if (loader) {
       loader.classList.add('hide');
-      setTimeout(() => loader.remove(), 400); // remove from DOM after fade
+      setTimeout(() => loader.remove(), 400);
     }
 
-    // 2. Reveal the app-root
     const appRoot = document.querySelector('app-root') as HTMLElement;
     if (appRoot) {
       appRoot.style.visibility = 'visible';
@@ -51,8 +59,10 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  // ✅ Lenis smooth scroll
   initLenis() {
-    const lenis = new Lenis();
+   const lenis = new Lenis();
+
     (window as any).lenis = lenis;
 
     const raf = (time: number) => {
@@ -62,6 +72,7 @@ export class AppComponent implements AfterViewInit {
     requestAnimationFrame(raf);
   }
 
+  // ✅ Header active on scroll
   initHeaderScroll() {
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
@@ -71,5 +82,20 @@ export class AppComponent implements AfterViewInit {
         header?.classList.remove('active');
       }
     });
+  }
+
+  // ✅ MAIN FIX: Reset scroll on every route change
+  handleRouteScroll() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+
+        // Use Lenis (primary)
+        (window as any).lenis?.scrollTo(0, { immediate: true });
+
+        // Fallback (safety)
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+      });
   }
 }

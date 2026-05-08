@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { BtnPrimary } from "../../../../shared/btn-primary/btn-primary";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BtnPrimary, RouterLink],
   templateUrl: './home-component.html',
   styleUrl: './home-component.scss',
 })
